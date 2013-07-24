@@ -2,12 +2,10 @@
 ini_set('display_errors', 1);
 error_reporting(E_ERROR);
 define('ROOT', dirname(__FILE__));
-//define('DS', DIRECTORY_SEPARATOR);
 define('CODE_BASE', ROOT . '/../' . 'code_base');
 
-$controller = $_GET['c'] ? $_GET['c'] : 'nav';
+$controller = $_GET['c'] ? $_GET['c'] : 'site';
 $action = $_GET['a'] ? $_GET['a'] : 'index';
-
 
 $controller = ucwords($controller) . 'Controller';
 $filePath = ROOT . '/controller/' . "{$controller}.class.php";
