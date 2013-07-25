@@ -19,9 +19,8 @@
 					<div class="carousel-inner">
 
 <?php 
-$arrImgInfo = Utils::getImgInfo(1,3);
 $i = 0;
-foreach($arrImgInfo as $img){
+foreach($this->arrImg[3] as $img){
 	$i++;
 ?>
 	<div class="<?php if(1==$i)echo 'active';?> item"><img style="width:700px;height:300px" src="<?php echo $img['path']?>" alt=""></div>
@@ -43,9 +42,8 @@ foreach($arrImgInfo as $img){
 		<div class="row-fluid">
 			<ul class="thumbnails">
 <?php 
-	$arrImgInfo = Utils::getImgInfo(1,4);
 	$index = 0;
-	foreach($arrImgInfo as $img){
+	foreach($this->arrImg[4] as $img){
 		$index++;
 ?>
 			<li class="span2 <?php if(1==$index) echo 'offset1'; ?>">
@@ -68,9 +66,8 @@ foreach($arrImgInfo as $img){
 		<div class="row-fluid">
 			<div class="span10 offset1" style="margin-top:25px">
 <?php 
-		$arrImgInfo = Utils::getImgInfo(1,5);
 		$index = 0;
-		foreach($arrImgInfo as $img){
+		foreach($this->arrImg[5] as $img){
 			$index++;
 ?>
 				<div class="span4 shadow-box">
@@ -88,9 +85,8 @@ foreach($arrImgInfo as $img){
 					<h5>行业咨询</h5>
 					<ul>
 					<?php 
-			$arrNewsInfo = Utils::getNewsInfo(1,7);
-			$index=0;
-			foreach($arrNewsInfo as $news){
+					$index=0;
+					foreach($this->arrNews[7] as $news){
 						$index++;
 						if($index<7){
 					?>

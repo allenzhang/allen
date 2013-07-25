@@ -15,8 +15,19 @@ class SiteController extends Controller{
 	 * 首页 
 	 */
 	public function indexAction(){
-		
-		$this->render('index');
+
+		$model = new SiteModel();
+
+		$arrImg = $arrNews  = array();
+		$arrImg = $model->getImg(1, array(1,3,4,5));//$wid=1(yjssm)
+
+		$arrNews = $model->getNews(1, 7);
+		$tmplateValues = array(
+			'arrImg' => $arrImg,
+			'arrNews' => $arrNews,
+		);
+
+		$this->render('index', $tmplateValues);
 	}
 
 
@@ -24,8 +35,25 @@ class SiteController extends Controller{
 	 * 新闻页 
 	 */
 	public function newsAction(){
+		$arrNews = array();		
+
+		$model = new SiteModel(); 
+		//获取新闻
+		$wId = 1;
+		$nZoneId = 7;
+		$arrNews = $model->getNews($wId, $nZoneId);
+
+		//获取热门图片
+		$wId = 1;
+		$iZoneId = 4;
+		$arrImg = $model->getImg($wId, $iZoneId);
 		
-		$this->render('news');
+		$tmplateValues = array(
+			'arrNews' => $arrNews,
+			'arrImg' => $arrImg,
+		);
+
+		$this->render('news', $tmplateValues);
 	}
 
 
@@ -33,8 +61,27 @@ class SiteController extends Controller{
 	 * 新闻详情页 
 	 */
 	public function newsViewAction(){
+		$news = array();     
+
+		$id = $this->PARAMS['id'];
+
+		$model = new SiteModel(); 
+		//获取新闻  
+		$tmpNews = $model->getNews(null, null, $id);
+		$news = array_values($tmpNews);
+
+		//获取热门图片
+		$wId = 1;       
+		$iZoneId = 4;        
+		$arrImg = $model->getImg($wId, $iZoneId);
 		
-		$this->render('news_view');
+
+		$tmplateValues = array(
+				'news' => $news[0][0],
+				'arrImg' => $arrImg, 
+				);	
+
+		$this->render('news_view', $tmplateValues);
 	}
 }
 

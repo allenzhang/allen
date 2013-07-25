@@ -3,23 +3,19 @@
 <div class="row-fluid">
 
 	<div class="span7 offset1">
-	<?php 
-		$arrNewsInfo = Utils::getNewsInfo(1,7);
-	?>
-
 		<div class="row-fluid" style="background-color:#eee;border-radius:5px;margin-top:10px;margin-bottom:10px;">
 			<div class="span6">
-				<a href="#" class="thumbnail"><img style="width:350px;height:215px" src="<?php echo $arrNewsInfo[0]['imgInfo'][0]['path'] ?>"></a>
+				<a href="#" class="thumbnail"><img style="width:350px;height:215px" src="<?php echo $this->arrNews[7][0]['imgInfo'][0]['path'] ?>"></a>
 			</div>
 			<div class="span6" style="margin:10px 5px 10px 10px;">
-			<h4><a href="./news_detail.php?id=<?php echo $arrNewsInfo[0]['id'];?>"><?php echo $arrNewsInfo[0]['title']; ?></a></h4>
-				<span style="color:#272727;line-height: 28px;"><?php echo String::trword($arrNewsInfo[0]['content'],120,'...'); ?></span>
+			<h4><a href="./news_detail.php?id=<?php echo $this->arrNews[7][0]['id'];?>"><?php echo $this->arrNews[7][0]['title']; ?></a></h4>
+				<span style="color:#272727;line-height: 28px;"><?php echo String::trword($this->arrNews[7][0]['content'],120,'...'); ?></span>
 			</div>	
 		</div>
 
 
 <?php $index = 0;
-	foreach($arrNewsInfo as $news){$index++;
+	foreach($this->arrNews[7] as $news){$index++;
 ?>
 
 	<?php if(1==$index%2){?>

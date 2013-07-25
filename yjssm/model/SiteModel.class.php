@@ -7,45 +7,36 @@
 
 
 require_once ROOT . '/model/Model.class.php';
+require_once ROOT . '/utils/Curl.class.php';
 
 class SiteModel extends Model{
 
 
-	public function getImg($wId, $zoneId){
+	public function getImg($wId, $zoneId, $id){
 		$arrImg = array();
 
-		$url = Config::$IMG_API_DOMAIN . "/index.php?r=imgApi/getImagesByZone&wid={$wid}&zone_id={$zone_id}"; 
+		if(is_array($zoneId)){
+			$tmpZoneId = implode(',', $zoneId);
+		}else{
+			$tmpZoneId = $zoneId;
+		}
+
+		$url = Config::$IMG_API_DOMAIN . "/index.php?c=content&a=getImg&wid={$wId}&zoneid={$tmpZoneId}&id={$id}"; 
 		$transfer = Curl::callApiByCurl($url);
 		$arrImg = json_decode($transfer['content'], true);
-		/*foreach($res as $img){
-			$img['path'] = Config::$IMG_PATH_PREFIX . '/' . $img['uid'];
-			$arrImgInfo[] = $img;
-		}*/
 
 		return $arrImg;
 	}
 
-	public function getNews($wId, $zoneId){
+	public function getNews($wId, $zoneId, $id){
 		$arrNews = array();
 
-		$url = Config::$NEWS_API_DOMAIN . "/index.php?r=newsApi/getNewsByZone&wid={$wid}&zoneId={$zoneId}"; 
+		$url = Config::$NEWS_API_DOMAIN . "/index.php?c=content&a=getNews&wid={$wId}&zoneid={$zoneId}&id={$id}"; 
 		$transfer = Curl::callApiByCurl($url);
 		$arrNews = json_decode($transfer['content'], true);
 
 		return $arrNews;
 	}
-
-
-	public function getNewsById($wid, $newsId){
-
-		$url = Config::$NEWS_API_DOMAIN . "/index.php?r=newsApi/getNewsById&wid={$wid}&newsId={$newsId}"; 
-		$transfer = Curl::callApiByCurl($url);
-		$res = json_decode($transfer['content'], true);
-
-		return $res;
-	}
-
-
 
 }
 

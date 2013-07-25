@@ -30,9 +30,10 @@ class ImgModel extends Model{
 	 * @param $wId 网站id
 	 * @param $zoneId 区域id
 	 * @param $id 图片id
+	 * @param $newsid 新闻关联id
 	 * @param $status 0不显示，1正常显示，2待删除，3已删除
 	 */
-	public function getImg($wId, $zoneId, $status, $id){
+	public function getImg($wId, $zoneId, $status, $id, $newsId){
 		$arrImg = array();
 
 
@@ -43,11 +44,16 @@ class ImgModel extends Model{
 		$sql = "select * from vs_img where status={$status}";
 		if($id){
 			$sql .= " and id ={$id}";
+		}elseif($newsId){
+			$sql .= " and news_id={$newsId}";
 		}else{
 			if($wId){
 				$sql .= " and wid={$wId}";
 			}
-			if($zoneId){
+			if(is_array($zoneId)){
+				$sZoneId = implode(',', $zoneId);
+				$sql .= " and zone_id in ({$sZoneId})";
+			}elseif($zoneId){
 				$sql .= " and zone_id={$zoneId}";
 			}
 		}

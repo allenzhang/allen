@@ -21,9 +21,6 @@
 			.top {margin-top:15px}
 				
 		</style>
-		<?php require_once dirname(__FILE__) . '/../config/Config.class.php'; ?>
-		<?php require_once dirname(__FILE__) . '/../utils/Utils.class.php'; ?>
-		<?php require_once dirname(__FILE__) . '/../utils/String.class.php'; ?>
 	</head>
 
 
@@ -31,12 +28,11 @@
 		
 		<div class="container-fluid" style="background-color:#333">
 			<div class="row-fluid" style="margin-buttom:0px">
-				<?php $logo = Utils::getImgInfo(1,1);?>
-				<img style="margin:0px 40px 10px 100px;float:left" src="<?php echo $logo[0]['path'] ; ?>">	
+				<img style="margin:0px 40px 10px 100px;float:left" src="<?php echo $this->domain.'/media/image/logo.png'; ?>">	
 				<!--<div  style="font-size:20px;margin:100px 318px 10px 300px;padding-top:10px;height:40px;border-radius: 13px">-->
 					<div  id="nav" class="nav" style="display:none">
-						<a class="btn btn-large btn-inverse" href="/">首&nbsp;页</a>
-						<a class="btn btn-large btn-inverse" href="./news.php">产业资讯</a>
+						<a class="btn btn-large btn-inverse" href="<?php echo $this->domain; ?>">首&nbsp;页</a>
+						<a class="btn btn-large btn-inverse" href="<?php echo $this->domain.'/news.html'; ?>">产业资讯</a>
 						<a class="btn btn-large btn-inverse" href="#">产品展示</a>
 						<a class="btn btn-large btn-inverse" href="#">车间设备</a>
 						<a class="btn btn-large btn-inverse" href="#">企业荣誉</a>
@@ -44,13 +40,13 @@
 						<a class="btn btn-large btn-inverse" href="#">联系我们</a>
 					</div>
 					<div  id="ieNav" class="nav">
-						<a href="#"><img src="media/img/nav/2/1.jpg"></img></a>
-						<a href="#"><img style="width:100px;height:60px" src="media/img/nav/2/2.jpg"></img></a>
-						<a href="#"><img src="media/img/nav/2/3.jpg"></img></a>
-						<a href="#"><img src="media/img/nav/2/4.jpg"></img></a>
-						<a href="#"><img src="media/img/nav/2/5.jpg"></img></a>
-						<a href="#"><img src="media/img/nav/2/6.jpg"></img></a>
-						<a href="#"><img src="media/img/nav/2/7.jpg"></img></a>
+						<a href="#"><img src="<?php echo $this->domain.'/media/image/nav/1.jpg';?>"></img></a>
+						<a href="#"><img style="width:100px;height:60px" src="<?php echo $this->domain.'/media/image/nav/2.jpg';?>"></img></a>
+						<a href="#"><img src="<?php echo $this->domain.'/media/image/nav/3.jpg';?>"></img></a>
+						<a href="#"><img src="<?php echo $this->domain.'/media/image/nav/4.jpg';?>"></img></a>
+						<a href="#"><img src="<?php echo $this->domain.'/media/image/nav/5.jpg';?>"></img></a>
+						<a href="#"><img src="<?php echo $this->domain.'/media/image/nav/6.jpg';?>"></img></a>
+						<a href="#"><img src="<?php echo $this->domain.'/media/image/nav/7.jpg';?>"></img></a>
 					</div>
 				</div>	
 			</div>
