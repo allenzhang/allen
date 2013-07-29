@@ -7,32 +7,23 @@
 					<p style="text-align:right;color:orange"><a href="#">更多信息&gt;&gt;</a></p>
 				</div>
 
-
-
-				<div style="width:67%;float:left;display:block;margin:20px 10px 5px 10px">
-				<div id="myCarousel" class="carousel slide" >
-					<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-					</ol>
-					<div class="carousel-inner">
-
-<?php 
-$i = 0;
-foreach($this->arrImg[3] as $img){
-	$i++;
-?>
-	<div class="<?php if(1==$i)echo 'active';?> item"><img style="width:700px;height:300px" src="<?php echo $img['path']?>" alt=""></div>
-<?php }?>
+				<div name="Carousel_img" style="width:67%;float:left;display:block;margin:20px 10px 5px 10px">
+					<div id="myCarousel" class="carousel slide" >
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner">
+							<?php $i = 0;foreach($this->arrImg[3] as $img){$i++;?>
+							<div class="<?php if(1==$i)echo 'active';?> item"><img style="width:700px;height:300px" src="<?php echo $img['path']?>" alt=""></div>
+							<?php }?>
+						</div>
+						<a id="prev" style="display:none" class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+						<a id="next" style="display:none" class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 					</div>
-					<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-					<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 				</div>
-				</div>
-	<script>
-	$('.carousel').carousel();
-	</script>
+
 			</div>
 		</div>	
 
@@ -41,11 +32,7 @@ foreach($this->arrImg[3] as $img){
 
 		<div class="row-fluid">
 			<ul class="thumbnails">
-<?php 
-	$index = 0;
-	foreach($this->arrImg[4] as $img){
-		$index++;
-?>
+			<?php $index = 0;foreach($this->arrImg[4] as $img){$index++;?>
 			<li class="span2 <?php if(1==$index) echo 'offset1'; ?>">
 				<a class="thumbnail" href="#" style="background-color: #eee;">
 				<div style="text-align: center;padding-top:12px">
@@ -54,7 +41,7 @@ foreach($this->arrImg[3] as $img){
 				</div>
 				</a>
 			</li>
-<?php }?>
+			<?php }?>
 
 			</ul>
 		</div>
@@ -65,15 +52,11 @@ foreach($this->arrImg[3] as $img){
 
 		<div class="row-fluid">
 			<div class="span10 offset1" style="margin-top:25px">
-<?php 
-		$index = 0;
-		foreach($this->arrImg[5] as $img){
-			$index++;
-?>
+				<?php $index = 0;foreach($this->arrImg[5] as $img){$index++;?>
 				<div class="span4 shadow-box">
 				<a href="#" class="thumbnail"><img style="width:100%;height:100%" src="<?php echo $img['path']?>"></a>
 				</div>
-<?php }?>
+				<?php }?>
 			</div>
 		</div>
 
@@ -117,6 +100,19 @@ foreach($this->arrImg[3] as $img){
 
 		</div>
 
+<script>
+	$('.carousel').carousel();
 
+    $('div[name="Carousel_img"]').bind({
+		mouseover: function(){
+			$('#prev').css('display', 'block');
+            $('#next').css('display', 'block');
+		},
+		mouseout: function(){
+			$('#prev').css('display', 'none');
+            $('#next').css('display', 'none');
+        }
+	});
+</script>
 <?php require_once dirname(__FILE__) . '/inc/footer.html'; ?>
 

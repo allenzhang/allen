@@ -2,7 +2,7 @@
 
 <div class="row-fluid">
 
-	<div class="span7 offset1">
+	<div class="span7 offset1 page">
 		<div class="row-fluid" style="background-color:#eee;border-radius:5px;margin-top:10px;margin-bottom:10px;">
 			<div class="span6">
 				<a href="#" class="thumbnail"><img style="width:350px;height:215px" src="<?php echo $this->arrNews[7][0]['imgInfo'][0]['path'] ?>"></a>

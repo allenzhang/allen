@@ -1,7 +1,7 @@
 <?php require_once dirname(__FILE__) . '/inc/header.html'; ?>
 
 <div class="row-fluid">
-	<div class="span7 offset1">
+	<div class="span7 offset1 page">
 		<div><h4><?php echo $this->news['title']; ?></h4></div>
 		<div><?php echo $this->news['pub_time']; ?>&nbsp;&nbsp;来源：<?php echo $this->news['source'];?></div>
 

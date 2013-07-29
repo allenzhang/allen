@@ -1,12 +1,11 @@
 <div class="row-fluid" style="margin-top:10px;">
-			<div class="span12 alert alert-info" style="margin-left:6px;margin-bottom:0px;"><h4>热门排行</h4></div>
-<?php 
-	$index = 0;
-	foreach($this->arrImg[4] as $img){
-		$index++;
-?>
+	<div class="span12 alert alert-info" style="margin-left:6px;margin-bottom:0px;"><h4>热门排行</h4></div>
+
+	<?php $index = 0;foreach($this->arrImg[4] as $img){$index++;?>
 	<div class="span12" style="background-color:#eee;border-radius: 4px;<?php if(1!=$index){?>margin-top:20px<?php }?>">
-					<div class="span6"><?php echo $img['description'];?></div>	<div class="span6"></span><img style="width:140px;height:140px" src="<?php echo $img['path'];?>"></div>
-			</div>
-<?php }?>
-		</div>
+		<div class="span6"><?php echo $img['description'];?></div>
+		<div class="span6"></span><img style="width:140px;height:140px" src="<?php echo $img['path'];?>"></div>
+	</div>
+	<?php }?>
+
+</div>
