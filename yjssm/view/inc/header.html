@@ -12,31 +12,13 @@
 		<script src="media/js/jquery-1.9.1.min.js"></script>
 		<script src="media/js/bootstrap.min.js"></script>
 		<style>
-			body {font-family:tahoma,arial,宋体,serif;font-size:13px;color:	#5B5B5B;background: url("<?php echo $this->domain.'/media/img/background.jpg';?>");}
+			body {font-family:tahoma,arial,宋体,serif;font-size:13px;color:	#5B5B5B;}
 			ul li {margin-top:8px;}
 			a{color:black}
-			.f-white{color:white;}
-			.nav {margin:67px 0px 10px 300px;padding-top:20px;height:40px;}
+			.f-white{color:rgba(238, 238, 238, 0.75);}
+			.f-orange{color:orange;}
 			.title{color:#3C3C3C;font-size:15px;font-weight:600;margin-top:10px;margin-bottom:10px}
 			.top {margin-top:15px}
-
-			.page {
-	/*margin: 2.5em auto;*/
-	border: 1px solid #a7a7a7;
-	background: #fff;
-
-	-webkit-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
-	-moz-box-shadow:    0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
-	-ms-box-shadow:     0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
-	-o-box-shadow:      0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
-	box-shadow:         0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
-
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-}
-
-				
 		</style>
 	</head>
 
@@ -44,9 +26,9 @@
 	<body>
 		
 		<div class="container-fluid" style="background-color:#333">
-			<div class="row-fluid" style="margin-buttom:0px">
+			<div class="row-fluid">
 				<img style="margin:0px 40px 10px 100px;float:left" src="<?php echo $this->domain.'/media/img/logo.png'; ?>">	
-				<!--<div  style="font-size:20px;margin:100px 318px 10px 300px;padding-top:10px;height:40px;border-radius: 13px">-->
+				<div style="margin-top:80px;">
 					<div  id="nav" class="nav" style="display:none">
 						<a class="btn btn-large btn-inverse" href="<?php echo $this->domain; ?>">首&nbsp;页</a>
 						<a class="btn btn-large btn-inverse" href="<?php echo $this->domain.'/news.html'; ?>">产业资讯</a>
@@ -65,5 +47,6 @@
 						<a href="#"><img src="<?php echo $this->domain.'/media/img/nav/6.jpg';?>"></img></a>
 						<a href="#"><img src="<?php echo $this->domain.'/media/img/nav/7.jpg';?>"></img></a>
 					</div>
-				</div>	
-			</div>
+				</div>
+			</div>	
+		</div>
