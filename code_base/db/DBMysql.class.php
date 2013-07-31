@@ -114,7 +114,6 @@ class DBMysql {
         } while (FALSE);
         // to_do, 连接失败，需要记log
         $password_part = substr($password,0,5) . '...';
-//        self::logError( "Connect failed: $username@$host:$port,pw=$password_part,$db_name", 'mysqlns.connect');
         $logArray = $db_config_array;
         $logArray['password'] = $password_part;
         self::logError( sprintf("Connect failed:db_config_array=%s", var_export($logArray, true)), 'mysqlns.connect');
