@@ -64,12 +64,28 @@ class ContentController extends Controller{
 				'arrImg' => $arrImg[$zoneId], 
 			);
 		}elseif('news' == $type){
+			$arrNews = array();
+	
 			$model = new NewsModel();
-			$arrNews = $model->getNews($wId, $zoneId);
+			$tmpArrNews = $model->getNews($wId, $zoneId);
+
+			//添加图片信息
+			$iModel = new ImgModel();
+			foreach($tmpArrNews as $news){
+				if($news['img_count'] < 1)continue;
+
+				$newsId = $news['id'];
+				$tmpImg = $iModel->getImg(null,null,null,null, $newsId);
+				$img = $iModel->format($tmpImg);
+				$news['imgInfo'] = $img[$news['zone_id']];
+
+				$arrNews[] = $news;
+			}
+			$arrNews = $model->format($arrNews);
 
 			$templateValues = array(
 					'arrNews' => $arrNews,
-			);
+					);
 		}
 
 		$zoneModel = new ZoneModel();
@@ -78,6 +94,7 @@ class ContentController extends Controller{
 		$templateValues['zone'] = $arrZone[0];
 		$template = 'content/view';
 
+print_r($arrNews);
 		$this->render($template, $templateValues);
 	}
 

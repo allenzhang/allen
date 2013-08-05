@@ -1,11 +1,46 @@
-<div class="row-fluid" style="margin-top:10px;">
-	<div class="span12 alert alert-info" style="margin-left:6px;margin-bottom:0px;"><h4>热门排行</h4></div>
+<style>
+	.t_hot{
+		color: #fff;
+		background-color: #C562A5;
+		overflow:hidden;
+		height:30px;
+	}
+	.tl, .tr, .bl, .br {
+		background-image: url(http://i.mol.im/i/furniture/corners/spt_rndcorner_4.png);
+		/*position: absolute;*/
+		width: 8px;
+		height: 8px;
+	}
+	.tr {background-position: -10px 0;float:right}
+	.tl {background-position: 0px 0;float:left}
 
-	<?php $index = 0;foreach($this->arrImg[4] as $img){$index++;?>
-	<div class="span12" style="background-color:#eee;border-radius: 4px;<?php if(1!=$index){?>margin-top:20px<?php }?>">
-		<div class="span6"><?php echo $img['description'];?></div>
-		<div class="span6"></span><img style="width:140px;height:140px" src="<?php echo $img['path'];?>"></div>
+</style>
+
+<div class="row-fluid">
+	<div style="margin-bottom:5px;">
+		<div class="t_hot">
+    		<div class="tl">&nbsp;</div>
+    		<div class="tr">&nbsp;</div>
+    		<div style="font-size:15px;padding-top:5px;"><b>热门排行</b></div>
+		</div>
+	</div>
+
+	<?php foreach($this->arrImg[4] as $img){?>
+	<div class="J_hot" style="background-color:#eee;margin-bottom:5px;overflow:hidden;">
+		<div style="float:right"></span><img style="width:140px;height:140px" src="<?php echo $img['path'];?>"></div>
+		<div style="float:left"><?php echo $img['description'];?></div>
 	</div>
 	<?php }?>
 
 </div>
+
+<script>
+	$('.J_hot').mouseover(function(){
+		$(this).css('background-color','#C562A5');
+	});
+	$('.J_hot').mouseout(function(){
+		$(this).css('background-color','#eee');
+	});
+
+</script>
+

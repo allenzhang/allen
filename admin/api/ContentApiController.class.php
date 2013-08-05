@@ -62,7 +62,7 @@ class ContentApiController extends ApiController{
 
 			$arrNews[] = $news;
 		}
-        $arrNews = $iModel->format($arrNews);
+        $arrNews = $nModel->format($arrNews);
 
 
 		echo  json_encode($arrNews);

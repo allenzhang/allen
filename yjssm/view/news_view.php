@@ -1,6 +1,6 @@
 <?php require_once dirname(__FILE__) . '/inc/header.html'; ?>
 
-<div class="row-fluid" style="margin-top:20px">
+<div class="row-fluid" style="margin-top:10px">
 	<div class="span1"></div>
 	<div class="span7">
 		<div style="text-align:center">
@@ -12,9 +12,7 @@
 				<?php }?>	
 			</div>
 		</div>
-		<div class="row-fluid">
-			<div class="span10 offset1" style="font-size:14px"><?php echo $this->news['content']; ?></div>
-		</div>
+		<div style="font-size:14px;line-height:30px;margin-top:20px;text-indent:30px"><p><?php echo $this->news['content']; ?></p></div>
 
 	</div>
 
