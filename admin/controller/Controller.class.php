@@ -19,6 +19,12 @@ class Controller{
 
 
 	function __construct(){
+		//检查客户端IP
+		$ip = $this->_getRemoteIp();
+		if(!$ip || !in_array($ip, CommonConfig::$WHITE_LIST_REMOTE_IP)){
+			exit;
+		}
+
 		//创建全局http请求参数，并销毁$_GET,$_POST
 		$this->PARAMS = $_REQUEST;
 		$this->domain = CommonConfig::$DOMAIN;
@@ -48,12 +54,26 @@ class Controller{
 		ob_end_clean();
 		echo $ret;
 		exit;
-
-
-
-
 	}
 
+
+	/**
+	 * 获取客户端ip
+	 * @return $cip
+	 */
+	private function _getRemoteIp(){
+		if(!empty($_SERVER["HTTP_CLIENT_IP"])){    
+			$cip = $_SERVER["HTTP_CLIENT_IP"];
+		}elseif(!empty($_SERVER["HTTP_X_FORWARDED_FOR"])){    
+			$cip = $_SERVER["HTTP_X_FORWARDED_FOR"];  
+		}elseif(!empty($_SERVER["REMOTE_ADDR"])){    
+			$cip = $_SERVER["REMOTE_ADDR"];  
+		}else {
+			$cip = "无法获取！"; 
+		}
+   
+		return $cip; 
+	}
 
 
 }
