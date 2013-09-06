@@ -83,6 +83,53 @@ class SiteController extends Controller{
 
 		$this->render('news_view', $tmplateValues);
 	}
+
+
+	public function productAction(){
+
+		$tmplateValues = array(
+
+		);
+		$this->render('product', $tmplateValues);
+	}
+
+
+	public function workshopAction(){
+
+		$tmplateValues = array(
+
+		);
+		$this->render('workshop', $tmplateValues);
+	}
+
+
+	public function honorAction(){
+
+		$tmplateValues = array(
+
+		);
+		$this->render('honor', $tmplateValues);
+	}
+
+
+	public function networkAction(){
+
+        $tmplateValues = array(
+
+        );  
+        $this->render('network', $tmplateValues);
+    }
+
+
+	public function contactAction(){
+
+		$tmplateValues = array(
+
+		);
+		$this->render('contact', $tmplateValues);
+	}
+
+
 }
 
 
